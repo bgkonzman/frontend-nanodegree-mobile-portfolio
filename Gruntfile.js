@@ -7,23 +7,19 @@ module.exports = function(grunt) {
           screwIE8: true
         },
         files: {
-          src: ['js/*.js', 'views/js/*.js'],  // source files mask
-          dest: '.',    // destination folder
-          expand: true,    // allow dynamic building
-          flatten: true,   // remove all unnecessary nesting
-          ext: '.min.js'
+          'js/perfmatters.min.js': 'js/perfmatters.js',
+          'views/js/main.min.js': 'views/js/main.js'
         }
       }
     },
     cssmin: {
       target: {
-        files: [{
-          expand: true,
-          cwd: '.',
-          src: ['css/*.css', '!css/*.min.css', 'views/css/*.css', '!views/css/*.min.css'],
-          dest: '.',
-          ext: '.min.css'
-        }]
+        files: {
+          'css/style.min.css': 'css/style.css',
+          'css/print.min.css': 'css/print.css',
+          'views/css/style.min.css': 'views/css/style.css',
+          'views/css/bootstrap-grid.min.css': 'views/css/bootstrap-grid.css'
+        }
       }
     },
     imagemin: {

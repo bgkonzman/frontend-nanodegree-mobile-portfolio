@@ -404,6 +404,7 @@ var resizePizzas = function(size) {
   // Changes the value for the size of the pizza above the slider
   function changeSliderLabel(size) {
     switch(size) {
+      // Optimized: used getElementById() instead of querySelector()
       case "1":
         document.getElementById("pizzaSize").innerHTML = "Small";
         return;
@@ -422,6 +423,7 @@ var resizePizzas = function(size) {
 
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
+    // Optimized: Switched to percentages, moved switch statement into changePizzaSizes(size)
     switch(size) {
         case "1":
           newwidth = 25;
@@ -435,6 +437,8 @@ var resizePizzas = function(size) {
         default:
           console.log("bug in sizeSwitcher");
     }
+    // Optimized: Made randomPizzas array just once, rather than in for loop
+    // Optimized: Used getElementsByClassName() instead of querySelectorAll
     var randomPizzas = document.getElementsByClassName("randomPizzaContainer");
 
     for (var i = 0; i < randomPizzas.length; i++) {
@@ -454,7 +458,10 @@ var resizePizzas = function(size) {
 window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
+// Optimized: Made pizzasDiv variable just once, rather than in for loop
+// Optimized: Used getElementsById() instead of querySelector
 var pizzasDiv = document.getElementById("randomPizzas");
+// Optimized: Reduced the number of pizzas made, since 100+ won't show up on page
 for (var i = 2; i < 50; i++) {
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
@@ -483,6 +490,7 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
 
 // Moves the sliding background pizzas based on scroll position
+// Optimized: Use rAF instead of updating positions on each scroll event
 // rAF ticking code adapted from Paul Lewis:
 // http://www.html5rocks.com/en/tutorials/speed/animations/
 var ticking = false;
@@ -493,7 +501,9 @@ function updatePositions() {
 
   window.performance.mark("mark_start_frame");
 
+  // Optimized: Calculate scrollTop once, and not in the loop to prevent layout thrashing
   var scrollTop = document.body.scrollTop / 1250;
+  // Optimized: Calculate an array of phases outside of loop, since only 5 values possible for any given scrollTop
   var phase = [];
   for (var j = 0; j < 5; j++) {
     phase[j] = Math.sin(scrollTop + (j % 5));
@@ -525,6 +535,7 @@ window.addEventListener('scroll', requestTick);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
+  // Optimized: use getElementById() rather than querySelector()
   var movingPizzas1 = document.getElementById("movingPizzas1");
   for (var i = 0; i < 50; i++) {
     var elem = document.createElement('img');

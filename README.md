@@ -1,5 +1,14 @@
 ## Website Performance Optimization portfolio project
 
+To run, access index.html in a web browser.
+You might find it helpful to run this using a local server and, optionally, a tunnel.
+Assuming a Linux-based environment:
+0. Download and install ngrok
+1. Clone the repo
+2. cd to the repo and "python -m SimpleHTTPServer 8080" (or whatever port you prefer)
+3. In another terminal, "ngrok http 8080" (or whatever port you chose above)
+4. Open the "Forwarding" address from ngrok in whatever browser you prefer
+
 ####Part 1: Optimize PageSpeed Insights score for index.html
 
 1. Inlined web fonts

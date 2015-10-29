@@ -1,22 +1,16 @@
-/*
-Welcome to the 60fps project! Your goal is to make Cam's Pizzeria website run
-jank-free at 60 frames per second.
+/**
+ * Welcome to the 60fps project! My goal was to make Cam's Pizzeria website run
+ * jank-free at 60 frames per second.
+ *
+ * I disclaim all responsibility for its heinous design. I just work here.
+ *
+ * You can find all sorts of optimizations listed inline here, or summarized in
+ * README.md.
+ * Brian Konzman, SJ
+ * Version 1.3
+ * 29 October 2015
+ */
 
-There are two major issues in this code that lead to sub-60fps performance. Can
-you spot and fix both?
-
-
-Built into the code, you'll find a few instances of the User Timing API
-(window.performance), which will be console.log()ing frame rate data into the
-browser console. To learn more about User Timing API, check out:
-http://www.html5rocks.com/en/tutorials/webperformance/usertiming/
-
-Creator:
-Cameron Pittman, Udacity Course Developer
-cameron *at* udacity *dot* com
-*/
-
-// As you may have realized, this website randomly generates pizzas.
 // Here are arrays of all possible pizza ingredients.
 var pizzaIngredients = {};
 pizzaIngredients.meats = [

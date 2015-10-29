@@ -27,9 +27,11 @@ Assuming a Linux-based environment:
 1. Minified and inlined style.css
 2. Removed unused selectors from, minified, and inlined bootstrap-grid.css
 3. Resized and optimized pizzeria.jpg, optimized pizza.png
-4. Promoted background pizzas to separate layers using will-change:transform to reduce the amount of painting work
+4. Promoted background pizzas to separate layers using will-change:transform to reduce the amount of painting work. Used transform:translateZ(0) and backface-visibility:hidden for compatibility with browsers that don't support will-change.
 5. main.js: Used getElementById() or getElementsByClassName() instead of querySelector() or querySelectorAll()
 6. main.js: Made as many variables as possible outside of loops instead of inside them, to avoid duplicating work and layout thrashing
 7. main.js: Reduced the number of background pizzas appended to pizzasDiv, as 100+ will not show up on the screen anyway
 8. main.js: Used ticking rAF for animating background pizzas instead of doing it for every scroll event, as scroll events frequently fire much more than every 16ms
-9. Minified main.js
+9. main.js: Implemented 'use strict'; throughout
+10. Minified main.js
+

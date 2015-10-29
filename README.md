@@ -1,4 +1,7 @@
 ## Website Performance Optimization portfolio project
+### Version 1.3, 29 October 2015
+### Author: Brian Konzman, SJ
+### Contact: b.g.konzman@gmail.com
 
 To run, access index.html in a web browser.
 You might find it helpful to run this using a local server and, optionally, a tunnel.
@@ -33,5 +36,7 @@ Assuming a Linux-based environment:
 7. main.js: Reduced the number of background pizzas appended to pizzasDiv, as 100+ will not show up on the screen anyway
 8. main.js: Used ticking rAF for animating background pizzas instead of doing it for every scroll event, as scroll events frequently fire much more than every 16ms
 9. main.js: Implemented 'use strict'; throughout
+10. main.js: Changed for loops to access <object>.length only once, storing the length in a variable. This should help performance, while also guarding against both mutating the length and checking it in the same loop
+11. main.js: Declare 'var elem' outside the DOMContentLoaded's anonymous function loop, so it doesn't keep getting created over and over.
 10. Minified main.js
 
